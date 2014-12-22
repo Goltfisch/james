@@ -1,0 +1,11 @@
+template(name='navbar')
+  nav.navbar
+    .container
+      ul
+        li
+          a(href='/') James
+        if currentUser
+          li
+            a(href="{{pathFor 'workspaces'}}") {{i18n 'workspaces'}}
+          li
+            a(href="{{pathFor 'signOut'}}") {{i18n 'signOut'}}

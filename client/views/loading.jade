@@ -1,0 +1,12 @@
+template(name='loading')
+  .row
+    .col-md-12
+      |{{> spinner}}
+  script(type='text/javascript').
+    // show spinner only on slow data-Exchanges
+    var divWithSpinner = document.getElementById('loading-animation');
+    divWithSpinner.style.display = 'none';
+    var showSpinner = function () {
+      divWithSpinner.style.display = 'block';
+    };
+    window.setTimeout('showSpinner()', 1000);
