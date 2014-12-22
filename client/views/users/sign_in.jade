@@ -1,0 +1,15 @@
+template(name='signIn')
+  .row
+    .four.columns.offset-by-four
+      form#sign-in-form
+        h1 {{i18n 'signIn'}}
+        label(for='email') {{i18n 'email'}}
+        input#email.u-full-width(type='email' placeholder="{{i18n 'email'}}" autofocus='true')
+        label(for='password') {{i18n 'password'}}
+        input#password.u-full-width(type='password', placeholder="{{i18n 'password'}}")
+        input.button-primary.u-full-width(type='submit', value="{{i18n 'signIn'}}")
+      .centered-text
+        a(href="{{pathFor 'resetPassword'}}") {{i18n 'forgottenPasswordLink'}}
+      hr
+      a.button.u-full-width(href="{{pathFor 'signUp'}}") {{i18n 'signUp'}}
+

@@ -7,3 +7,12 @@
 meteor-platform
 autopublish
 insecure
+less
+coffeescript
+mquandalle:jade
+pmuens:skeleton
+accounts-base
+iron:router
+anti:i18n
+accounts-password
+sacha:spin
