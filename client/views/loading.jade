@@ -1,7 +1,8 @@
 template(name='loading')
   .row
-    .col-md-12
-      |{{> spinner}}
+    .twelve.columns
+      #loading-animation
+        |{{> spinner}}
   script(type='text/javascript').
     // show spinner only on slow data-Exchanges
     var divWithSpinner = document.getElementById('loading-animation');
