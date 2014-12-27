@@ -40,9 +40,21 @@ isSigendIn = ->
   return unless @ready()
   unless Meteor.loggingIn() or Meteor.user()
     @redirect 'signIn'
-  else
+  @next()
+
+forbiddenRoutesWhenSignedIn = ->
+  return unless @ready()
+  if Meteor.loggingIn() or Meteor.user()
     @redirect '/'
   @next()
+
+Router.onBeforeAction forbiddenRoutesWhenSignedIn,
+  only: [
+    'signUp'
+    'signIn'
+    'resetPassword'
+    'newPassword'
+  ]
 
 Router.onBeforeAction isSigendIn,
   except: [
