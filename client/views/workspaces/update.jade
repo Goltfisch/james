@@ -1,0 +1,12 @@
+template(name='updateWorkspace')
+  .row
+    .six.columns.offset-by-three
+      form#update-workspace-form
+        with workspace
+          h1 {{i18n 'updateWorkspace'}}
+          label(for='name') {{i18n 'name'}}
+          input#name.u-full-width(type='text' placeholder="{{i18n 'name'}}" value='{{name}}' autofocus='true')
+          label(for='description') {{i18n 'description'}}
+          textarea#description.u-full-width(placeholder="{{i18n 'description'}}" rows='20') {{description}}
+          input.button-primary.u-full-width(type='submit', value="{{i18n 'save'}}")
+          a.button.u-full-width(href="{{pathFor 'workspaces'}}") {{i18n 'cancel'}}
