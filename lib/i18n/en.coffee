@@ -26,6 +26,15 @@ i18n.map 'en',
   cancel: 'Cancel'
   save: 'Save'
   404: 'Page could not be found'
+  addWorkspace: 'Add workspace'
+  noWorkspacesAvailable: 'There are currently no workspaces available'
+  name: 'Name'
+  description: 'Description'
+  notSignedIn: 'You need to be signed in to perform that action'
+  nameIsBlank: 'Name should not be blank'
+  descriptionIsBlank: 'Description should not be blank'
+  updateWorkspace: 'Update workspace'
+  deleteWorkspaceConfirmation: 'Do you really want to delete the workspace with all its dependencies? This cannot be undone!'
   emailTemplates:
     verifyEmail:
       subject: 'Confirm E-Mail Address'

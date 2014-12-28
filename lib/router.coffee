@@ -3,12 +3,35 @@ Router.configure
   loadingTemplate: 'loading'
   notFoundTemplate: 'notFound'
 
+# controllers
+WorkspacesController = RouteController.extend
+  waitOn: ->
+    Meteor.subscribe 'workspaces'
+  data: ->
+    workspaces: Workspaces.find()
+
+UpdateWorkspaceController = RouteController.extend
+  waitOn: ->
+    Meteor.subscribe 'workspace', @params._id
+  data: ->
+    workspace: Workspaces.findOne _id: @params._id
+
 # router mapping
 Router.map ->
   @route 'workspaces',
     path: '/'
+    controller: WorkspacesController
     onAfterAction: ->
       setTitle i18n('workspaces')
+  @route 'addWorkspace',
+    path: '/workspaces/add'
+    onAfterAction: ->
+      setTitle i18n('addWorkspace')
+  @route 'updateWorkspace',
+    path: '/workspaces/:_id/update'
+    controller: UpdateWorkspaceController
+    onAfterAction: ->
+      setTitle i18n('updateWorkspace')
   @route 'resetPassword',
     path: '/reset_password'
     template: 'resetPassword'

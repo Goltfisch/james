@@ -26,6 +26,15 @@ i18n.map 'de',
   cancel: 'Abbrechen'
   save: 'Speichern'
   404: 'Die von Ihnen angeforderte Seite konnte leider nicht gefunden werden'
+  addWorkspace: 'Workspace hinzufügen'
+  noWorkspacesAvailable: 'Derzeit sind keine Workspaces vorhanden'
+  name: 'Name'
+  description: 'Beschreibung'
+  notSignedIn: 'Sie müssen angemeldet sein, um diese Aktion durchführen zu können'
+  nameIsBlank: 'Der Name darf nicht leer sein'
+  descriptionIsBlank: 'Die Beschreibung darf nicht leer sein'
+  updateWorkspace: 'Workspace aktualisieren'
+  deleteWorkspaceConfirmation: 'Soll dieser Workspace mit allen abhängigen Daten wirklich gelöscht werden? Dieser Schritt kann nicht rückgängig gemacht werden!'
   emailTemplates:
     verifyEmail:
       subject: 'E-Mail Adresse bestätigen'

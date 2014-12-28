@@ -1,0 +1,25 @@
+template(name='workspaces')
+  .row
+    .twelve.columns
+      if workspaces.count
+        table.u-full-width
+          thead
+            tr
+              th {{i18n 'name'}}
+              th {{i18n 'description'}}
+              th
+              th
+          tbody
+            each workspaces
+              tr
+                td {{name}}
+                td {{description}}
+                td
+                  a(href="{{pathFor 'updateWorkspace'}}")
+                    i.fa.fa-pencil
+                td
+                  a.delete(href='#')
+                    i.fa.fa-trash
+      else
+        .alert.info {{i18n 'noWorkspacesAvailable'}}
+      a.button.button-primary(href="{{pathFor 'addWorkspace'}}") {{i18n 'addWorkspace'}}
