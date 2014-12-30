@@ -1,11 +1,11 @@
 template(name='addWorkspace')
   .row
-    .six.columns.offset-by-three
+    .seven.columns.offset-by-two
       form#add-workspace-form
         h1 {{i18n 'addWorkspace'}}
         label(for='name') {{i18n 'name'}}
         input#name.u-full-width(type='text' placeholder="{{i18n 'name'}}" autofocus='true')
         label(for='description') {{i18n 'description'}}
         textarea#description.u-full-width(placeholder="{{i18n 'description'}}" rows='20')
-        input.button-primary.u-full-width(type='submit', value="{{i18n 'save'}}")
-        a.button.u-full-width(href="{{pathFor 'workspaces'}}") {{i18n 'cancel'}}
+        input.button-primary(type='submit', value="{{i18n 'save'}}")
+        a.button.u-pull-right(href="{{pathFor 'workspaces'}}") {{i18n 'cancel'}}
