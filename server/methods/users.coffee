@@ -7,7 +7,7 @@ Meteor.methods
     throw new Meteor.Error(422, i18n 'passwordsDontMatch') if user.password isnt user.passwordConfirmation
 
     newUserId = Accounts.createUser(
-      username: user.username
+      username: user.username.toLowerCase().trim()
       email: user.email
       password: user.password
     )
