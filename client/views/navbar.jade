@@ -7,5 +7,5 @@ template(name='navbar')
         if currentUser
           li
             a(href="{{pathFor 'workspaces'}}") {{i18n 'workspaces'}}
-          li
+          li.u-pull-right
             a(href="{{pathFor 'signOut'}}") {{i18n 'signOut'}}
