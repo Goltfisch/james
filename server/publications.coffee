@@ -1,6 +1,6 @@
 Meteor.publish 'workspaces', ->
   if @userId
-    Workspaces.find collaborators: @userId
+    Workspaces.find collaboratorIds: @userId
   else
     []
 
