@@ -9,9 +9,7 @@ Meteor.methods
     Workspaces.insert
       name: workspace.name
       description: workspace.description
-      collaborators: [Meteor.userId()]
-      updatedAt: new Date()
-      createdAt: new Date()
+      collaboratorIds: [Meteor.userId()]
 
   updateWorkspace: (workspace) ->
     throw new Meteor.Error(401, i18n 'notSignedIn') unless Meteor.user()
@@ -24,9 +22,16 @@ Meteor.methods
       $set:
         name: workspace.name
         description: workspace.description
-        updatedAt: new Date()
 
   deleteWorkspace: (workspace) ->
     throw new Meteor.Error(401, i18n 'notSignedIn') unless Meteor.user()
 
     Workspaces.remove workspace._id
+
+Workspaces.before.insert (userId, doc) ->
+  doc.createdAt = new Date()
+  doc.updatedAt = new Date()
+
+Workspaces.before.update (userId, doc, fieldNames, modifier, options) ->
+  modifier.$set = modifier.$set or {}
+  modifier.$set.updatedAt = new Date()
