@@ -6,6 +6,8 @@ template(name='navbar')
           a(href='/') James
         if currentUser
           li
-            a(href="{{pathFor 'workspaces'}}") {{i18n 'workspaces'}}
+            a(href="{{pathFor 'workspaces'}}")
+              i.fa.fa-home.fa-lg
           li.u-pull-right
-            a(href="{{pathFor 'signOut'}}") {{i18n 'signOut'}}
+            a(href="{{pathFor 'signOut'}}")
+              i.fa.fa-power-off.fa-lg

@@ -1,7 +1,6 @@
 i18n.map 'de',
   signIn: 'Login'
   signUp: 'Registrieren'
-  signOut: 'Logout'
   email: 'E-Mail'
   password: 'Passwort'
   workspaces: 'Workspaces'
