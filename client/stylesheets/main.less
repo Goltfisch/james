@@ -80,6 +80,7 @@ form#sign-in-form {
 textarea {
   resize: none;
   height: 200px;
+  min-height: 38px;
 }
 
 .alert {
@@ -104,6 +105,22 @@ textarea {
   }
 }
 
+form {
+  textarea.autosize {
+    height: 38px;
+  }
+}
+
 .u-pull-right {
   float: right !important;
+}
+
+.hidden-on-desktop {
+  display: none !important;
+}
+
+@media (max-width: 960px) {
+  .hidden-on-desktop {
+    display: block !important;
+  }
 }

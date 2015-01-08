@@ -12,7 +12,8 @@ template(name='workspaces')
           tbody
             each workspaces
               tr
-                td {{name}}
+                td
+                  a(href="{{pathFor 'workspace'}}") {{name}}
                 td {{description}}
                 td
                   a(href="{{pathFor 'updateWorkspace'}}")

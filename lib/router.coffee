@@ -4,6 +4,12 @@ Router.configure
   notFoundTemplate: 'notFound'
 
 # controllers
+WorkspaceController = RouteController.extend
+  waitOn: ->
+    Meteor.subscribe 'workspace', @params._id
+  data: ->
+    workspace: Workspaces.findOne _id: @params._id
+
 WorkspacesController = RouteController.extend
   waitOn: ->
     Meteor.subscribe 'workspaces'
@@ -18,6 +24,11 @@ UpdateWorkspaceController = RouteController.extend
 
 # router mapping
 Router.map ->
+  @route 'workspace',
+    path: '/workspaces/:_id'
+    controller: WorkspaceController
+    onAfterAction: ->
+      setTitle Workspaces.findOne().name if Workspaces.findOne()
   @route 'workspaces',
     path: '/'
     controller: WorkspacesController
