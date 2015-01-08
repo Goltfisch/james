@@ -34,6 +34,10 @@ i18n.map 'de',
   descriptionIsBlank: 'Die Beschreibung darf nicht leer sein'
   updateWorkspace: 'Workspace aktualisieren'
   deleteWorkspaceConfirmation: 'Soll dieser Workspace mit allen abhängigen Daten wirklich gelöscht werden? Dieser Schritt kann nicht rückgängig gemacht werden!'
+  enterText: 'Text mit Schlagwort (beginnt mit #) eingeben und "Strg + Enter" bzw. "CMD + Enter" drücken'
+  bodyIsBlank: 'Der Text darf nicht leer sein'
+  workspaceIdIsBlank: 'Die workspaceId darf nicht leer sein'
+  noTagsInBody: 'Der Text beinhaltet keine Schlagwörter (Schlagwörter beginnen mit #)'
   emailTemplates:
     verifyEmail:
       subject: 'E-Mail Adresse bestätigen'

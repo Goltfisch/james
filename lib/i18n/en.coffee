@@ -34,6 +34,10 @@ i18n.map 'en',
   descriptionIsBlank: 'Description should not be blank'
   updateWorkspace: 'Update workspace'
   deleteWorkspaceConfirmation: 'Do you really want to delete the workspace with all its dependencies? This cannot be undone!'
+  enterText: 'Enter text with a tag (starts with #) and press "Strg + Enter" or "CMD + Enter"'
+  bodyIsBlank: 'Text should not be blank'
+  workspaceIdIsBlank: 'workspaceId should not be blank'
+  noTagsInBody: 'The text does not contain a tag (starts with #)'
   emailTemplates:
     verifyEmail:
       subject: 'Confirm E-Mail Address'
