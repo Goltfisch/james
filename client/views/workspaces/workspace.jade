@@ -1,4 +1,22 @@
 template(name='workspace')
-  form#add-thing-form
-    textarea#body.autosize.mousetrap.u-full-width(placeholder="{{i18n 'enterText'}}" autofocus='true' rows='1')
-    input.button-primary.u-full-width.hidden-on-desktop(type='submit' value="{{i18n 'save'}}")
+  .row
+    .twelve.columns
+      form#add-thing-form
+        textarea#body.autosize.mousetrap.u-full-width(placeholder="{{i18n 'enterText'}}" autofocus='true' rows='1')
+        input.button-primary.u-full-width.hidden-on-desktop(type='submit' value="{{i18n 'save'}}")
+  if things.count
+    .things
+      each things
+        .row
+          .twelve.columns
+            .thing
+              header.details
+                span {{createdAt this}}
+                span.dot-divider ·
+                span {{author.username}}
+                span.u-pull-right
+                  a(href='#')
+                    i.fa.fa-archive
+                  a(href='#')
+                    i.fa.fa-trash
+              |{{simpleFormat body}}
