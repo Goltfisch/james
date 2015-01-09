@@ -7,8 +7,13 @@ Router.configure
 WorkspaceController = RouteController.extend
   waitOn: ->
     Meteor.subscribe 'workspace', @params._id
+    Meteor.subscribe 'things', @params._id
   data: ->
     workspace: Workspaces.findOne _id: @params._id
+    things: Things.find {}
+    ,
+      sort:
+        updatedAt: -1
 
 WorkspacesController = RouteController.extend
   waitOn: ->

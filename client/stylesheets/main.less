@@ -108,6 +108,7 @@ textarea {
 form {
   textarea.autosize {
     height: 38px;
+    margin-bottom: 0;
   }
 }
 
@@ -122,5 +123,30 @@ form {
 @media (max-width: 960px) {
   .hidden-on-desktop {
     display: block !important;
+  }
+}
+
+.dot-divider {
+  padding: 0 2.5px;
+}
+
+.things {
+  .thing {
+    padding: 15px;
+    border: 1px solid #EEEEEE;
+    margin-bottom: 1.5rem;
+    p:last-child {
+      margin-bottom: 0;
+    }
+    header.details {
+      color: #A9A9A9;
+      margin-bottom: 1.5rem;
+      a {
+        padding: 0 5px;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
   }
 }
