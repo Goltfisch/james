@@ -30,7 +30,7 @@ UpdateWorkspaceController = RouteController.extend
 # router mapping
 Router.map ->
   @route 'workspace',
-    path: '/workspaces/:_id'
+    path: '/workspace/:_id'
     controller: WorkspaceController
     onAfterAction: ->
       setTitle Workspaces.findOne().name if Workspaces.findOne()
