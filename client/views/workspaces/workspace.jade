@@ -19,12 +19,19 @@ template(name='workspace')
           .twelve.columns
             .thing
               header.details
+                if isArchived
+                  span.archived {{i18n 'archived'}}
+                  span.dot-divider ·
                 span {{createdAt this}}
                 span.dot-divider ·
                 span {{author.username}}
                 span.u-pull-right
-                  a(href='#')
-                    i.fa.fa-archive
+                  unless isArchived
+                    a.archive-thing(href='#')
+                      i.fa.fa-archive
+                  else
+                    a.unarchive-thing(href='#')
+                      i.fa.fa-reply
                   a.remove-thing(href='#')
                     i.fa.fa-trash
               |{{simpleFormat body}}
