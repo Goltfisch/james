@@ -34,4 +34,4 @@ template(name='workspace')
                       i.fa.fa-reply
                   a.remove-thing(href='#')
                     i.fa.fa-trash
-              |{{simpleFormat body}}
+              .body(contenteditable) {{simpleFormat body}}

@@ -46,6 +46,17 @@ Template.workspace.events
       if error
         alert error.reason
 
+  'blur .thing .body': (event, template) ->
+    event.preventDefault()
+
+    thing =
+      _id: @._id
+      body: event.currentTarget.innerText
+
+    Meteor.call 'updateThing', thing, (error) ->
+      if error
+        alert error.reason
+
 Template.workspace.helpers
   updatedAt: (thing) ->
     differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.updatedAt)
@@ -61,7 +72,7 @@ Template.workspace.helpers
 Template.workspace.rendered = ->
   $('#add-thing-form #body').autosize()
 
-  $('#add-thing-form #body').textcomplete [
+  $('#add-thing-form #body, .thing .body').textcomplete [
     match: /\B#([\+\w]*)$/
     search: (term, callback) ->
       tags = []
