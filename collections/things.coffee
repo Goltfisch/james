@@ -17,6 +17,11 @@ Meteor.methods
       tagIds: tagIds
       workspaceId: thing.workspaceId
 
+  removeThing: (thing) ->
+    throw new Meteor.Error(401, i18n 'notSignedIn') unless Meteor.user()
+
+    Things.remove(thing._id)
+
 Things.before.insert (userId, doc) ->
   doc.isArchived = false
   doc.authorId = userId

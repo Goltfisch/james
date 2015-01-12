@@ -15,6 +15,17 @@ Template.workspace.events
         template.find('#body').value = ''
         $('#add-thing-form #body').css('height', '')
 
+  'click a.remove-thing': (event, template) ->
+    event.preventDefault()
+
+    thing =
+      _id: @._id
+
+    if (confirm(i18n 'removeThingConfirmation'))
+      Meteor.call 'removeThing', thing, (error) ->
+        if error
+          alert error.reason
+
 Template.workspace.helpers
   createdAt: (thing) ->
     differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.createdAt)

@@ -38,6 +38,7 @@ i18n.map 'en',
   bodyIsBlank: 'Text should not be blank'
   workspaceIdIsBlank: 'workspaceId should not be blank'
   noTagsInBody: 'The text does not contain a tag (starts with #)'
+  removeThingConfirmation: 'Do you really want to remove this entry? This cannot be undone!'
   emailTemplates:
     verifyEmail:
       subject: 'Confirm E-Mail Address'
