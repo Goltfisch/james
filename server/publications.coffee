@@ -20,3 +20,20 @@ Meteor.publishComposite 'things', (workspaceId) ->
     ]
   else
     []
+
+Meteor.reactivePublish 'allTags', (workspaceId) ->
+  if @userId
+    things = Things.find
+      workspaceId: workspaceId
+    ,
+      reactive: true
+    tagIds = []
+    things.forEach (thing) ->
+      tagIds.push thing.tagIds
+    Tags.find
+      _id:
+        $in: _.uniq(_.flatten (tagIds))
+    ,
+      reactive: true
+  else
+    []
