@@ -38,6 +38,7 @@ i18n.map 'de',
   bodyIsBlank: 'Der Text darf nicht leer sein'
   workspaceIdIsBlank: 'Die workspaceId darf nicht leer sein'
   noTagsInBody: 'Der Text beinhaltet keine Schlagwörter (Schlagwörter beginnen mit #)'
+  removeThingConfirmation: 'Soll dieser Eintrag wirklich gelöscht werden? Dieser Schritt kann nicht rückgängig gemacht werden!'
   emailTemplates:
     verifyEmail:
       subject: 'E-Mail Adresse bestätigen'
