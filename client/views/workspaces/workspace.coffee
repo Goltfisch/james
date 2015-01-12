@@ -30,6 +30,27 @@ Template.workspace.helpers
 Template.workspace.rendered = ->
   $('#add-thing-form #body').autosize()
 
+  $('#add-thing-form #body').textcomplete [
+    match: /\B#([\+\w]*)$/
+    search: (term, callback) ->
+      tags = []
+      Tags.find().forEach (tag) ->
+        tags.push tag.name
+      tags = tags.sort()
+      callback $.map(tags, (tag) ->
+        (if tag.indexOf(term) is 0 then tag else null)
+      )
+
+    template: (value) ->
+      '#' + value
+
+    replace: (value) ->
+      '#' + value + ' '
+
+    index: 1
+  ],
+    maxCount: 5
+
   Mousetrap.bind [
     'command+enter'
     'ctrl+enter'
