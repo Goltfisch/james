@@ -17,6 +17,23 @@ Meteor.methods
       tagIds: tagIds
       workspaceId: thing.workspaceId
 
+  updateThing: (thing) ->
+    throw new Meteor.Error(401, i18n 'notSignedIn') unless Meteor.user()
+    throw new Meteor.Error(422, i18n 'bodyIsBlank') unless thing.body
+
+    tagsArray = extractTags(thing.body)
+
+    throw new Meteor.Error(422, i18n 'noTagsInBody') unless tagsArray.length
+
+    tagIds = getTagIdsForTagsInTagsArray tagsArray
+
+    Things.update
+      _id: thing._id
+    ,
+      $set:
+        body: thing.body
+        tagIds: tagIds
+
   removeThing: (thing) ->
     throw new Meteor.Error(401, i18n 'notSignedIn') unless Meteor.user()
 
