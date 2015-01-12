@@ -150,3 +150,26 @@ form {
     }
   }
 }
+
+.tags {
+  margin-bottom: 20px;
+  .checkbox {
+    float: left;
+    margin: 0 20px 10px 0;
+    label {
+      margin-bottom: 0;
+      cursor: pointer;
+      input {
+        display: none;
+        &:checked + span {
+          background: #EEEEEE;
+        }
+      }
+      span.label-body {
+        border: 1px solid #EEEEEE;
+        padding: 10px;
+        margin-left: 0;
+      }
+    }
+  }
+}

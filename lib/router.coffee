@@ -8,8 +8,13 @@ WorkspaceController = RouteController.extend
   waitOn: ->
     Meteor.subscribe 'workspace', @params._id
     Meteor.subscribe 'things', @params._id
+    Meteor.subscribe 'allTags', @params._id
   data: ->
     workspace: Workspaces.findOne _id: @params._id
+    tags: Tags.find {}
+    ,
+      sort:
+        name: 1
     things: Things.find {}
     ,
       sort:

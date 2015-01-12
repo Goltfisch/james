@@ -4,6 +4,14 @@ template(name='workspace')
       form#add-thing-form
         textarea#body.autosize.mousetrap.u-full-width(placeholder="{{i18n 'enterText'}}" autofocus='true' rows='1')
         input.button-primary.u-full-width.hidden-on-desktop(type='submit' value="{{i18n 'save'}}")
+  if tags.count
+    .tags
+      each tags
+        .checkbox
+          label
+            input(type='checkbox' name='tags' value='{{_id}}')
+            span.label-body {{name}}
+      .u-cf
   if things.count
     .things
       each things
