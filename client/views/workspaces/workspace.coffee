@@ -47,13 +47,13 @@ Template.workspace.events
         alert error.reason
 
 Template.workspace.helpers
-  createdAt: (thing) ->
-    differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.createdAt)
+  updatedAt: (thing) ->
+    differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.updatedAt)
 
     if differenceInDays > 1
-      moment(thing.createdAt).format('LLLL')
+      moment(thing.updatedAt).format('LLLL')
     else
-      moment(thing.createdAt).fromNow()
+      moment(thing.updatedAt).fromNow()
 
   author: ->
     Meteor.users.findOne _id: @.authorId
