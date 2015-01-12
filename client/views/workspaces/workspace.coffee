@@ -26,6 +26,26 @@ Template.workspace.events
         if error
           alert error.reason
 
+  'click a.archive-thing': (event, template) ->
+    event.preventDefault()
+
+    thing =
+      _id: @._id
+
+    Meteor.call 'archiveThing', thing, (error) ->
+      if error
+        alert error.reason
+
+  'click a.unarchive-thing': (event, template) ->
+    event.preventDefault()
+
+    thing =
+      _id: @._id
+
+    Meteor.call 'unarchiveThing', thing, (error) ->
+      if error
+        alert error.reason
+
 Template.workspace.helpers
   createdAt: (thing) ->
     differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.createdAt)
