@@ -59,3 +59,6 @@ Workspaces.before.insert (userId, doc) ->
 Workspaces.before.update (userId, doc, fieldNames, modifier, options) ->
   modifier.$set = modifier.$set or {}
   modifier.$set.updatedAt = new Date()
+
+Workspaces.before.remove (userId, doc) ->
+  Things.remove workspaceId: doc._id
