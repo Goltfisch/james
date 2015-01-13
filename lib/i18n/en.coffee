@@ -42,6 +42,12 @@ i18n.map 'en',
   archived: 'Archived'
   loadMore: 'Load more...'
   searchThings: 'Search in "{$1}"'
+  collaborators: 'Collaborators'
+  noCollaboratorsAvailable: 'There are currently no collaborators available'
+  enterEmail: 'E-Mail Address'
+  addCollaborator: 'Add collaborator'
+  removeCollaboratorConfirmation: 'Do you really want to remove the collaborator?'
+  cannotRemoveYourself: 'You cannot remove yourself'
   emailTemplates:
     verifyEmail:
       subject: 'Confirm E-Mail Address'

@@ -42,6 +42,12 @@ i18n.map 'de',
   archived: 'Archiviert'
   loadMore: 'Mehr laden...'
   searchThings: '"{$1}" durchsuchen'
+  collaborators: 'Mitarbeiter'
+  noCollaboratorsAvailable: 'Derzeit sind keine Mitarbeiter vorhanden'
+  enterEmail: 'E-Mail Adresse'
+  addCollaborator: 'Mitarbeiter hinzufügen'
+  removeCollaboratorConfirmation: 'Soll dieser Mitarbeiter wirklich entfernt werden?'
+  cannotRemoveYourself: 'Sie können sich nicht selbst entfernen'
   emailTemplates:
     verifyEmail:
       subject: 'E-Mail Adresse bestätigen'

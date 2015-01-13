@@ -9,12 +9,16 @@ template(name='workspaces')
               th {{i18n 'description'}}
               th
               th
+              th
           tbody
             each workspaces
               tr
                 td
                   a(href="{{pathFor 'workspace'}}") {{name}}
                 td {{description}}
+                td
+                  a(href="{{pathFor 'collaborators'}}")
+                    i.fa.fa-users
                 td
                   a(href="{{pathFor 'updateWorkspace'}}")
                     i.fa.fa-pencil
