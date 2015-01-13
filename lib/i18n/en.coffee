@@ -40,6 +40,7 @@ i18n.map 'en',
   noTagsInBody: 'The text does not contain a tag (starts with #)'
   removeThingConfirmation: 'Do you really want to remove this entry? This cannot be undone!'
   archived: 'Archived'
+  loadMore: 'Load more...'
   emailTemplates:
     verifyEmail:
       subject: 'Confirm E-Mail Address'

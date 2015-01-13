@@ -5,9 +5,11 @@ Router.configure
 
 # controllers
 WorkspaceController = RouteController.extend
+  thingsSubscriptionHandle: ->
+    Meteor.subscribeWithPagination 'things', @params._id, 20
   waitOn: ->
     Meteor.subscribe 'workspace', @params._id
-    Meteor.subscribe 'things', @params._id
+    @thingsSubscriptionHandle()
     Meteor.subscribe 'allTags', @params._id
   data: ->
     workspace: Workspaces.findOne _id: @params._id
@@ -19,6 +21,7 @@ WorkspaceController = RouteController.extend
     ,
       sort:
         updatedAt: -1
+    thingsSubscriptionHandle: @thingsSubscriptionHandle()
 
 WorkspacesController = RouteController.extend
   waitOn: ->

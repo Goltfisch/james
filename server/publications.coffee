@@ -10,10 +10,15 @@ Meteor.publish 'workspace', (id) ->
   else
     []
 
-Meteor.publishComposite 'things', (workspaceId) ->
+Meteor.publishComposite 'things', (workspaceId, limit) ->
   if @userId
     find: ->
-      Things.find workspaceId: workspaceId
+      Things.find
+        workspaceId: workspaceId
+      ,
+        sort:
+          updatedAt: -1
+        limit: limit
     children: [
       find: (thing) ->
         Meteor.users.find _id: thing.authorId
