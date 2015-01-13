@@ -9,7 +9,7 @@ template(name='workspace')
       each tags
         .checkbox
           label
-            input(type='checkbox' name='tags' value='{{_id}}')
+            input.tag(type='checkbox' name='tags' value='{{_id}}' checked='{{tagIdInSelectedTags _id}}')
             span.label-body {{name}}
       .u-cf
   if things.count

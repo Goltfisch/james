@@ -6,7 +6,7 @@ Router.configure
 # controllers
 WorkspaceController = RouteController.extend
   thingsSubscriptionHandle: ->
-    Meteor.subscribeWithPagination 'things', @params._id, 20
+    Meteor.subscribeWithPagination 'things', @params._id, Session.get('selectedTags'), 20
   waitOn: ->
     Meteor.subscribe 'workspace', @params._id
     @thingsSubscriptionHandle()

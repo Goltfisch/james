@@ -62,6 +62,16 @@ Template.workspace.events
 
     @thingsSubscriptionHandle.loadNextPage()
 
+  'click .tag': (event, template) ->
+    selectedTags = template.findAll('input:checked')
+
+    selectedTagsArray = []
+
+    _.each selectedTags, (tag) ->
+      selectedTagsArray.push tag.value
+
+    Session.set('selectedTags', selectedTagsArray)
+
 Template.workspace.helpers
   updatedAt: (thing) ->
     differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.updatedAt)
@@ -80,7 +90,12 @@ Template.workspace.helpers
   allThingsLoaded: ->
     not @thingsSubscriptionHandle.loading() and Things.find().count() < @thingsSubscriptionHandle.loaded()
 
+  tagIdInSelectedTags: (tagId) ->
+    _.contains Session.get('selectedTags'), tagId
+
 Template.workspace.rendered = ->
+  Session.set('selectedTags', [])
+
   $('#add-thing-form #body').autosize()
 
   $('#add-thing-form #body, .thing .body').textcomplete [
@@ -109,3 +124,8 @@ Template.workspace.rendered = ->
     'ctrl+enter'
   ], (event) ->
     $('#add-thing-form').submit()
+
+  Mousetrap.bind [
+    'escape'
+  ], (event) ->
+    Session.set('selectedTags', [])
