@@ -10,11 +10,14 @@ Meteor.publish 'workspace', (id) ->
   else
     []
 
-Meteor.publishComposite 'things', (workspaceId, limit) ->
+Meteor.publishComposite 'things', (workspaceId, selectedTags, limit) ->
   if @userId
     find: ->
-      Things.find
-        workspaceId: workspaceId
+      query = {}
+      query.workspaceId = workspaceId
+      if selectedTags.length
+        query.tagIds = { $all: selectedTags }
+      Things.find query
       ,
         sort:
           updatedAt: -1
