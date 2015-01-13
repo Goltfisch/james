@@ -30,7 +30,7 @@ Meteor.publishComposite 'things', (workspaceId, searchQuery, selectedTags, limit
       query.workspaceId = workspaceId
       if searchQuery
         query.body = new RegExp(searchQuery, 'i')
-      if selectedTags.length
+      if selectedTags and selectedTags.length
         query.tagIds = { $all: selectedTags }
       Things.find query
       ,
