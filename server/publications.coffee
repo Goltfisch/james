@@ -10,11 +10,13 @@ Meteor.publish 'workspace', (id) ->
   else
     []
 
-Meteor.publishComposite 'things', (workspaceId, selectedTags, limit) ->
+Meteor.publishComposite 'things', (workspaceId, searchQuery, selectedTags, limit) ->
   if @userId
     find: ->
       query = {}
       query.workspaceId = workspaceId
+      if searchQuery
+        query.body = new RegExp(searchQuery, 'i')
       if selectedTags.length
         query.tagIds = { $all: selectedTags }
       Things.find query

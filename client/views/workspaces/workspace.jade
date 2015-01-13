@@ -5,13 +5,20 @@ template(name='workspace')
         textarea#body.autosize.mousetrap.u-full-width(placeholder="{{i18n 'enterText'}}" autofocus='true' rows='1')
         input.button-primary.u-full-width.hidden-on-desktop(type='submit' value="{{i18n 'save'}}")
   if tags.count
-    .tags
-      each tags
-        .checkbox
-          label
-            input.tag(type='checkbox' name='tags' value='{{_id}}' checked='{{tagIdInSelectedTags _id}}')
-            span.label-body {{name}}
-      .u-cf
+    hr
+    .row
+      .twelve.columns
+        form#search-things-form
+          input#search-query.u-full-width(type='text' placeholder="{{i18n 'searchThings' workspaceName}}" value='{{searchQuery}}')
+    .row
+      .twelve.columns
+        .tags
+          each tags
+            .checkbox
+              label
+                input.tag(type='checkbox' name='tags' value='{{_id}}' checked='{{tagIdInSelectedTags _id}}')
+                span.label-body {{name}}
+          .u-cf
   if things.count
     .things
       each things

@@ -41,6 +41,7 @@ i18n.map 'de',
   removeThingConfirmation: 'Soll dieser Eintrag wirklich gelöscht werden? Dieser Schritt kann nicht rückgängig gemacht werden!'
   archived: 'Archiviert'
   loadMore: 'Mehr laden...'
+  searchThings: '"{$1}" durchsuchen'
   emailTemplates:
     verifyEmail:
       subject: 'E-Mail Adresse bestätigen'

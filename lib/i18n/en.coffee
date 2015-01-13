@@ -41,6 +41,7 @@ i18n.map 'en',
   removeThingConfirmation: 'Do you really want to remove this entry? This cannot be undone!'
   archived: 'Archived'
   loadMore: 'Load more...'
+  searchThings: 'Search in "{$1}"'
   emailTemplates:
     verifyEmail:
       subject: 'Confirm E-Mail Address'
