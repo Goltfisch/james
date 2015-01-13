@@ -69,6 +69,9 @@ Template.workspace.helpers
   author: ->
     Meteor.users.findOne _id: @.authorId
 
+  editableBody: (body) ->
+    '<div class="body" contenteditable="true">' + simpleFormat(body) + '</div>'
+
 Template.workspace.rendered = ->
   $('#add-thing-form #body').autosize()
 
