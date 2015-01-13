@@ -57,6 +57,11 @@ Template.workspace.events
       if error
         alert error.reason
 
+  'click #load-more-things': (event, template) ->
+    event.preventDefault()
+
+    @thingsSubscriptionHandle.loadNextPage()
+
 Template.workspace.helpers
   updatedAt: (thing) ->
     differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.updatedAt)
@@ -71,6 +76,9 @@ Template.workspace.helpers
 
   editableBody: (body) ->
     '<div class="body" contenteditable="true">' + simpleFormat(body) + '</div>'
+
+  allThingsLoaded: ->
+    not @thingsSubscriptionHandle.loading() and Things.find().count() < @thingsSubscriptionHandle.loaded()
 
 Template.workspace.rendered = ->
   $('#add-thing-form #body').autosize()

@@ -35,3 +35,5 @@ template(name='workspace')
                   a.remove-thing(href='#')
                     i.fa.fa-trash
               |{{{editableBody body}}}
+    unless allThingsLoaded
+      a#load-more-things.button.u-full-width {{i18n 'loadMore'}}
