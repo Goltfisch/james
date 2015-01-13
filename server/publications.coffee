@@ -10,6 +10,19 @@ Meteor.publish 'workspace', (id) ->
   else
     []
 
+Meteor.publishComposite 'collaborators', (workspaceId) ->
+  if @userId
+    find: ->
+      Workspaces.find _id: workspaceId
+    children: [
+      find: (workspace) ->
+        Meteor.users.find _id: $in: workspace.collaboratorIds
+        ,
+          sort: username: 1
+    ]
+  else
+    []
+
 Meteor.publishComposite 'things', (workspaceId, searchQuery, selectedTags, limit) ->
   if @userId
     find: ->

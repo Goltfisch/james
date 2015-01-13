@@ -35,6 +35,16 @@ UpdateWorkspaceController = RouteController.extend
   data: ->
     workspace: Workspaces.findOne _id: @params._id
 
+CollaboratorsController = RouteController.extend
+  waitOn: ->
+    Meteor.subscribe 'collaborators', @params._id
+  data: ->
+    workspace: Workspaces.findOne _id: @params._id
+    collaborators: Meteor.users.find {}
+    ,
+      sort:
+        username: 1
+
 # router mapping
 Router.map ->
   @route 'workspace',
@@ -56,6 +66,11 @@ Router.map ->
     controller: UpdateWorkspaceController
     onAfterAction: ->
       setTitle i18n('updateWorkspace')
+  @route 'collaborators',
+    path: '/workspaces/:_id/collaborators'
+    controller: CollaboratorsController
+    onAfterAction: ->
+      setTitle i18n('collaborators')
   @route 'resetPassword',
     path: '/reset_password'
     template: 'resetPassword'

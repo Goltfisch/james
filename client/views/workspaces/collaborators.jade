@@ -1,0 +1,26 @@
+template(name='collaborators')
+  .row
+    .twelve.columns
+      form#add-collaborator-form
+        input#email.u-full-width(type='text' placeholder="{{i18n 'enterEmail'}}" autofocus='true')
+        input.button-primary.u-full-width.hidden-on-desktop(type='submit' value="{{i18n 'addCollaborator'}}")
+  .row
+    .twelve.columns
+      if collaborators.count
+        table.u-full-width
+          thead
+            tr
+              th {{i18n 'username'}}
+              th {{i18n 'email'}}
+              th
+          tbody
+            each collaborators
+              tr
+                td {{username}}
+                td {{getEmail this}}
+                td
+                  a.remove-collaborator(href='#')
+                    i.fa.fa-trash
+      else
+        .alert.info {{i18n 'noCollaboratorsAvailable'}}
+      a.button.u-pull-right(href="{{pathFor 'workspaces'}}") {{i18n 'cancel'}}
