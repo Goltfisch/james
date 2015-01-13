@@ -72,6 +72,14 @@ Template.workspace.events
 
     Session.set('selectedTags', selectedTagsArray)
 
+  'keyup #search-things-form': _.debounce((event, template) ->
+    event.preventDefault()
+
+    searchQuery = template.find('#search-query').value
+
+    Session.set('searchQuery', searchQuery)
+  , 300)
+
 Template.workspace.helpers
   updatedAt: (thing) ->
     differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.updatedAt)
@@ -93,8 +101,15 @@ Template.workspace.helpers
   tagIdInSelectedTags: (tagId) ->
     _.contains Session.get('selectedTags'), tagId
 
+  workspaceName: ->
+    Workspaces.findOne().name
+
+  searchQuery: ->
+    Session.get('searchQuery')
+
 Template.workspace.rendered = ->
   Session.set('selectedTags', [])
+  Session.set('searchQuery', '')
 
   $('#add-thing-form #body').autosize()
 
@@ -129,3 +144,4 @@ Template.workspace.rendered = ->
     'escape'
   ], (event) ->
     Session.set('selectedTags', [])
+    Session.set('searchQuery', '')
