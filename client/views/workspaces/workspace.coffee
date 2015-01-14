@@ -114,23 +114,44 @@ Template.workspace.rendered = ->
   $('#add-thing-form #body').autosize()
 
   $('#add-thing-form #body, .thing .body').textcomplete [
-    match: /\B#([\+\w]*)$/
-    search: (term, callback) ->
-      tags = []
-      Tags.find().forEach (tag) ->
-        tags.push tag.name
-      tags = tags.sort()
-      callback $.map(tags, (tag) ->
-        (if tag.indexOf(term) is 0 then tag else null)
-      )
+    {
+      match: /\B#([\+\w]*)$/
+      search: (term, callback) ->
+        tags = []
+        Tags.find().forEach (tag) ->
+          tags.push tag.name
+        tags = tags.sort()
+        callback $.map(tags, (tag) ->
+          (if tag.indexOf(term) is 0 then tag else null)
+        )
 
-    template: (value) ->
-      '#' + value
+      template: (value) ->
+        '#' + value
 
-    replace: (value) ->
-      '#' + value + ' '
+      replace: (value) ->
+        '#' + value + ' '
 
-    index: 1
+      index: 1
+    }
+    {
+      match: /\B@([\+\w]*)$/
+      search: (term, callback) ->
+        collaborators = []
+        Meteor.users.find().forEach (user) ->
+          collaborators.push user.username
+        collaborators = collaborators.sort()
+        callback $.map(collaborators, (collaborator) ->
+          (if collaborator.indexOf(term) is 0 then collaborator else null)
+        )
+
+      template: (value) ->
+        '@' + value
+
+      replace: (value) ->
+        '@' + value + ' '
+
+      index: 1
+    }
   ],
     maxCount: 5
 

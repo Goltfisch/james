@@ -60,3 +60,16 @@ Meteor.reactivePublish 'allTags', (workspaceId) ->
       reactive: true
   else
     []
+
+Meteor.reactivePublish 'allCollaborators', (workspaceId) ->
+  if @userId
+    workspace = Workspaces.findOne
+      _id: workspaceId
+    ,
+      reactive: true
+    Meteor.users.find
+      _id: $in: workspace.collaboratorIds
+    ,
+      reactive: true
+  else
+    []

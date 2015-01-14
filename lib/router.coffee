@@ -11,6 +11,7 @@ WorkspaceController = RouteController.extend
     Meteor.subscribe 'workspace', @params._id
     @thingsSubscriptionHandle()
     Meteor.subscribe 'allTags', @params._id
+    Meteor.subscribe 'allCollaborators', @params._id
   data: ->
     workspace: Workspaces.findOne _id: @params._id
     tags: Tags.find {}
