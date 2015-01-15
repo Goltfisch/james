@@ -9,7 +9,7 @@ template(name='workspace')
     .row
       .twelve.columns
         form#search-things-form
-          input#search-query.u-full-width(type='text' placeholder="{{i18n 'searchThings' workspaceName}}" value='{{searchQuery}}')
+          textarea#search-query.u-full-width(placeholder="{{i18n 'searchThings' workspaceName}}" rows='1') {{searchQuery}}
     .row
       .twelve.columns
         .tags
