@@ -19,28 +19,36 @@ template(name='workspace')
                 input.tag(type='checkbox' name='tags' value='{{_id}}' checked='{{tagIdInSelectedTags _id}}')
                 span.label-body {{name}}
           .u-cf
-  if things.count
-    .things
-      each things
-        .row
-          .twelve.columns
-            .thing
-              header.details
-                if isArchived
-                  span.archived {{i18n 'archived'}}
+    .row
+      .three.columns.u-pull-right
+        select#filter-type.u-full-width
+          option(value='all' selected="{{selectedIfFilterTypeIs 'all'}}") {{i18n 'all'}}
+          option(value='archived' selected="{{selectedIfFilterTypeIs 'archived'}}") {{i18n 'archived'}}
+          option(value='unarchived' selected="{{selectedIfFilterTypeIs 'unarchived'}}") {{i18n 'unarchived'}}
+    if things.count
+      .things
+        each things
+          .row
+            .twelve.columns
+              .thing
+                header.details
+                  if isArchived
+                    span.archived {{i18n 'isArchived'}}
+                    span.dot-divider ·
+                  span {{updatedAt this}}
                   span.dot-divider ·
-                span {{updatedAt this}}
-                span.dot-divider ·
-                span {{author.username}}
-                span.u-pull-right
-                  unless isArchived
-                    a.archive-thing(href='#')
-                      i.fa.fa-archive
-                  else
-                    a.unarchive-thing(href='#')
-                      i.fa.fa-reply
-                  a.remove-thing(href='#')
-                    i.fa.fa-trash
-              |{{{editableBody body}}}
-    unless allThingsLoaded
-      a#load-more-things.button.u-full-width {{i18n 'loadMore'}}
+                  span {{author.username}}
+                  span.u-pull-right
+                    unless isArchived
+                      a.archive-thing(href='#')
+                        i.fa.fa-archive
+                    else
+                      a.unarchive-thing(href='#')
+                        i.fa.fa-reply
+                    a.remove-thing(href='#')
+                      i.fa.fa-trash
+                |{{{editableBody body}}}
+      unless allThingsLoaded
+        a#load-more-things.button.u-full-width {{i18n 'loadMore'}}
+    else
+      .alert.info {{i18n 'noResultsForThisSelection'}}
