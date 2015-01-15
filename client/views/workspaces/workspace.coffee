@@ -124,7 +124,11 @@ Template.workspace.rendered = ->
 
   $('#add-thing-form #body').autosize()
 
-  $('#add-thing-form #body, .thing .body').textcomplete [
+  $('textarea#search-query').keydown (event) ->
+    if event.keyCode is 13 or event.which is 13 or event.shiftKey
+      event.preventDefault()
+
+  $('#add-thing-form #body, .thing .body, textarea#search-query').textcomplete [
     {
       match: /\B#([\+\w]*)$/
       search: (term, callback) ->
