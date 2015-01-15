@@ -39,7 +39,7 @@ i18n.map 'en',
   workspaceIdIsBlank: 'workspaceId should not be blank'
   noTagsInBody: 'The text does not contain a tag (starts with #)'
   removeThingConfirmation: 'Do you really want to remove this entry? This cannot be undone!'
-  archived: 'Archived'
+  isArchived: 'Archived'
   loadMore: 'Load more...'
   searchThings: 'Search in "{$1}"'
   collaborators: 'Collaborators'
@@ -48,6 +48,10 @@ i18n.map 'en',
   addCollaborator: 'Add collaborator'
   removeCollaboratorConfirmation: 'Do you really want to remove the collaborator?'
   cannotRemoveYourself: 'You cannot remove yourself'
+  all: 'All'
+  unarchived: 'Unarchived'
+  archived: 'Archived'
+  noResultsForThisSelection: 'There are no results for this selection'
   emailTemplates:
     verifyEmail:
       subject: 'Confirm E-Mail Address'

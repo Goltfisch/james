@@ -39,7 +39,7 @@ i18n.map 'de',
   workspaceIdIsBlank: 'Die workspaceId darf nicht leer sein'
   noTagsInBody: 'Der Text beinhaltet keine Schlagwörter (Schlagwörter beginnen mit #)'
   removeThingConfirmation: 'Soll dieser Eintrag wirklich gelöscht werden? Dieser Schritt kann nicht rückgängig gemacht werden!'
-  archived: 'Archiviert'
+  isArchived: 'Archiviert'
   loadMore: 'Mehr laden...'
   searchThings: '"{$1}" durchsuchen'
   collaborators: 'Mitarbeiter'
@@ -48,6 +48,10 @@ i18n.map 'de',
   addCollaborator: 'Mitarbeiter hinzufügen'
   removeCollaboratorConfirmation: 'Soll dieser Mitarbeiter wirklich entfernt werden?'
   cannotRemoveYourself: 'Sie können sich nicht selbst entfernen'
+  all: 'Alle'
+  unarchived: 'Nicht archivierte'
+  archived: 'Archivierte'
+  noResultsForThisSelection: 'Für diese Auswahl sind leider keine Ergebnisse vorhanden'
   emailTemplates:
     verifyEmail:
       subject: 'E-Mail Adresse bestätigen'

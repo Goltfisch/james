@@ -23,7 +23,7 @@ Meteor.publishComposite 'collaborators', (workspaceId) ->
   else
     []
 
-Meteor.publishComposite 'things', (workspaceId, searchQuery, selectedTags, limit) ->
+Meteor.publishComposite 'things', (workspaceId, searchQuery, selectedTags, filterType, limit) ->
   if @userId
     find: ->
       query = {}
@@ -32,6 +32,10 @@ Meteor.publishComposite 'things', (workspaceId, searchQuery, selectedTags, limit
         query.body = new RegExp(searchQuery, 'i')
       if selectedTags and selectedTags.length
         query.tagIds = { $all: selectedTags }
+      if filterType is 'archived'
+        query.isArchived = true
+      else if filterType is 'unarchived'
+        query.isArchived = false
       Things.find query
       ,
         sort:

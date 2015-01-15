@@ -80,6 +80,13 @@ Template.workspace.events
     Session.set('searchQuery', searchQuery)
   , 300)
 
+  'change #filter-type': (event, template) ->
+    event.preventDefault()
+
+    filterType = template.find('#filter-type').value
+
+    Session.set('filterType', filterType)
+
 Template.workspace.helpers
   updatedAt: (thing) ->
     differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.updatedAt)
@@ -101,6 +108,9 @@ Template.workspace.helpers
   tagIdInSelectedTags: (tagId) ->
     _.contains Session.get('selectedTags'), tagId
 
+  selectedIfFilterTypeIs: (filterType) ->
+    'selected' if Session.get('filterType') is filterType
+
   workspaceName: ->
     Workspaces.findOne().name
 
@@ -110,6 +120,7 @@ Template.workspace.helpers
 Template.workspace.rendered = ->
   Session.set('selectedTags', [])
   Session.set('searchQuery', '')
+  Session.set('filterType', '')
 
   $('#add-thing-form #body').autosize()
 
@@ -166,3 +177,4 @@ Template.workspace.rendered = ->
   ], (event) ->
     Session.set('selectedTags', [])
     Session.set('searchQuery', '')
+    Session.set('filterType', '')
