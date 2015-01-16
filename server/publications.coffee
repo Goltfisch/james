@@ -29,7 +29,10 @@ Meteor.publishComposite 'things', (workspaceId, searchQuery, selectedTags, filte
       query = {}
       query.workspaceId = workspaceId
       if searchQuery
-        query.body = new RegExp(searchQuery, 'i')
+        query['$and'] = []
+        searchParts = searchQuery.trim().split(/[ \-\:]+/)
+        _.each searchParts, (searchPart) ->
+          query['$and'].push { body: new RegExp(searchPart, 'i') }
       if selectedTags and selectedTags.length
         query.tagIds = { $all: selectedTags }
       if filterType is 'archived'
