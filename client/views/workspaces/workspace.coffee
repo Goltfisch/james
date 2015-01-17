@@ -49,13 +49,17 @@ Template.workspace.events
   'blur .thing .body': (event, template) ->
     event.preventDefault()
 
-    thing =
-      _id: @._id
-      body: event.currentTarget.innerText
+    oldBody = @.body.trim()
+    newBody = event.currentTarget.innerText.trim()
 
-    Meteor.call 'updateThing', thing, (error) ->
-      if error
-        alert error.reason
+    unless oldBody.localeCompare(newBody) is 0
+      thing =
+        _id: @._id
+        body: event.currentTarget.innerText
+
+      Meteor.call 'updateThing', thing, (error) ->
+        if error
+          alert error.reason
 
   'click #load-more-things': (event, template) ->
     event.preventDefault()
