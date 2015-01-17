@@ -25,3 +25,4 @@ momentjs:moment
 edgee:meteor-reactive-publish
 mquandalle:jquery-textcomplete
 percolate:paginated-subscription
+settinghead:auto-nprogress

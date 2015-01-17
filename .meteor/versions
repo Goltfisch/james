@@ -53,6 +53,7 @@ mongo@1.0.11
 mousetrap:mousetrap@1.4.6_1
 mquandalle:jade@0.4.1
 mquandalle:jquery-textcomplete@0.3.6_1
+mrt:nprogress@0.1.0
 npm-bcrypt@0.7.7
 observe-sequence@1.0.4
 ordered-dict@1.0.2
@@ -147,6 +148,7 @@ rzymek:moment-locales@2.8.3_10
 sacha:spin@2.0.4
 service-configuration@1.0.3
 session@1.0.5
+settinghead:auto-nprogress@1.0.0
 sha@1.0.2
 skeleton:skeleton@2.0.2
 spacebars@1.0.4
