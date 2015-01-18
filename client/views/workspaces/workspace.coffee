@@ -91,6 +91,11 @@ Template.workspace.events
 
     Session.set('filterType', filterType)
 
+  'click a.tags-toggle': (event, template) ->
+    event.preventDefault()
+
+    $('.tags').slideToggle()
+
 Template.workspace.helpers
   updatedAt: (thing) ->
     differenceInDays = calculateDifferenceInDaysForTwoDates(new Date(), thing.updatedAt)
@@ -120,6 +125,13 @@ Template.workspace.helpers
 
   searchQuery: ->
     Session.get('searchQuery')
+
+  availableTagsCount: ->
+    Tags.find().count()
+
+  selectedTags: ->
+    if Session.get('selectedTags')
+      Session.get('selectedTags').length
 
 Template.workspace.rendered = ->
   Session.set('selectedTags', [])
