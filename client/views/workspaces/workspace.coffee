@@ -141,7 +141,7 @@ Template.workspace.rendered = ->
   $('#add-thing-form #body').autosize()
 
   $('textarea#search-query').keydown (event) ->
-    if event.keyCode is 13 or event.which is 13 or event.shiftKey
+    if (event.keyCode is 13 or event.which is 13) or ((event.shiftKey and event.keyCode is 13) or (event.shiftKey and event.which is 13))
       event.preventDefault()
 
   $('#add-thing-form #body, .thing .body, textarea#search-query').textcomplete [
