@@ -11,20 +11,22 @@ template(name='workspace')
         form#search-things-form
           textarea#search-query.u-full-width(placeholder="{{i18n 'searchThings' workspaceName}}" rows='1') {{searchQuery}}
     .row
+      .four.columns
+        a.tags-toggle {{i18n 'xTagsYSelected' availableTagsCount selectedTags}}
+      .three.columns.u-pull-right
+        select#filter-type.u-full-width
+          option(value='all' selected="{{selectedIfFilterTypeIs 'all'}}") {{i18n 'all'}}
+          option(value='archived' selected="{{selectedIfFilterTypeIs 'archived'}}") {{i18n 'archived'}}
+          option(value='unarchived' selected="{{selectedIfFilterTypeIs 'unarchived'}}") {{i18n 'unarchived'}}
+    .row
       .twelve.columns
-        .tags
+        .hidden.tags
           each tags
             .checkbox
               label
                 input.tag(type='checkbox' name='tags' value='{{_id}}' checked='{{tagIdInSelectedTags _id}}')
                 span.label-body {{name}}
           .u-cf
-    .row
-      .three.columns.u-pull-right
-        select#filter-type.u-full-width
-          option(value='all' selected="{{selectedIfFilterTypeIs 'all'}}") {{i18n 'all'}}
-          option(value='archived' selected="{{selectedIfFilterTypeIs 'archived'}}") {{i18n 'archived'}}
-          option(value='unarchived' selected="{{selectedIfFilterTypeIs 'unarchived'}}") {{i18n 'unarchived'}}
     if things.count
       .things
         each things

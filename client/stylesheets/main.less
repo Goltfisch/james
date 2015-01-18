@@ -151,29 +151,6 @@ form {
   }
 }
 
-.tags {
-  margin-bottom: 20px;
-  .checkbox {
-    float: left;
-    margin: 0 20px 10px 0;
-    label {
-      margin-bottom: 0;
-      cursor: pointer;
-      input {
-        display: none;
-        &:checked + span {
-          background: #EEEEEE;
-        }
-      }
-      span.label-body {
-        border: 1px solid #EEEEEE;
-        padding: 10px;
-        margin-left: 0;
-      }
-    }
-  }
-}
-
 ul.dropdown-menu {
   li.textcomplete-item {
     margin-bottom: 0;
@@ -199,4 +176,41 @@ ul.dropdown-menu {
 
 textarea#search-query {
   height: 38px;
+}
+
+a.tags-toggle {
+  margin-bottom: 1.5rem;
+  padding: 6px 10px;
+  border: 1px solid #D1D1D1;
+  color: #A9A9A9;
+  display: block;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.hidden {
+  display: none;
+}
+
+.tags {
+  padding: 20px 0 30px 0;
+  .checkbox {
+    float: left;
+    margin: 0 20px 10px 0;
+    label {
+      margin-bottom: 0;
+      cursor: pointer;
+      input {
+        display: none;
+        &:checked + span {
+          background: #EEEEEE;
+        }
+      }
+      span.label-body {
+        border: 1px solid #EEEEEE;
+        padding: 10px;
+        margin-left: 0;
+      }
+    }
+  }
 }

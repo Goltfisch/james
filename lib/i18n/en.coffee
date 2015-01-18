@@ -52,6 +52,7 @@ i18n.map 'en',
   unarchived: 'Unarchived'
   archived: 'Archived'
   noResultsForThisSelection: 'There are no results for this selection'
+  xTagsYSelected: '{$1} Tags / {$2} selected'
   emailTemplates:
     verifyEmail:
       subject: 'Confirm E-Mail Address'

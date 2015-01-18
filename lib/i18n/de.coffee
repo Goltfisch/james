@@ -52,6 +52,7 @@ i18n.map 'de',
   unarchived: 'Nicht archivierte'
   archived: 'Archivierte'
   noResultsForThisSelection: 'Für diese Auswahl sind leider keine Ergebnisse vorhanden'
+  xTagsYSelected: '{$1} Schlagwörter / {$2} ausgewählt'
   emailTemplates:
     verifyEmail:
       subject: 'E-Mail Adresse bestätigen'
