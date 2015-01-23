@@ -8,9 +8,9 @@ template(name='signUp')
         label(for='username') {{i18n 'username'}}
         input#username.u-full-width(type='text' placeholder="{{i18n 'username'}}")
         label(for='password') {{i18n 'password'}}
-        input#password.u-full-width(type='password', placeholder="{{i18n 'password'}}")
+        input#password.u-full-width(type='password' placeholder="{{i18n 'password'}}")
         label(for='password-confirmation') {{i18n 'passwordConfirmation'}}
-        input#password-confirmation.u-full-width(type='password', placeholder="{{i18n 'passwordConfirmation'}}")
-        input.button-primary.u-full-width(type='submit', value="{{i18n 'signUp'}}")
+        input#password-confirmation.u-full-width(type='password' placeholder="{{i18n 'passwordConfirmation'}}")
+        input.button-primary.u-full-width(type='submit' value="{{i18n 'signUp'}}")
       hr
       a.button.u-full-width(href="{{pathFor 'signIn'}}") {{i18n 'signIn'}}

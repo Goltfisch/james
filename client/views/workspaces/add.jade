@@ -7,5 +7,5 @@ template(name='addWorkspace')
         input#name.u-full-width(type='text' placeholder="{{i18n 'name'}}" autofocus='true')
         label(for='description') {{i18n 'description'}}
         textarea#description.u-full-width(placeholder="{{i18n 'description'}}" rows='20')
-        input.button-primary(type='submit', value="{{i18n 'save'}}")
+        input.button-primary(type='submit' value="{{i18n 'save'}}")
         a.button.u-pull-right(href="{{pathFor 'workspaces'}}") {{i18n 'cancel'}}
