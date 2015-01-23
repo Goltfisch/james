@@ -36,7 +36,6 @@ i18n.map 'de',
   deleteWorkspaceConfirmation: 'Soll dieser Workspace mit allen abhängigen Daten wirklich gelöscht werden? Dieser Schritt kann nicht rückgängig gemacht werden!'
   enterText: 'Text mit Schlagwort (beginnt mit #) eingeben und "Strg + Enter" bzw. "CMD + Enter" drücken'
   bodyIsBlank: 'Der Text darf nicht leer sein'
-  workspaceIdIsBlank: 'Die workspaceId darf nicht leer sein'
   noTagsInBody: 'Der Text beinhaltet keine Schlagwörter (Schlagwörter beginnen mit #)'
   removeThingConfirmation: 'Soll dieser Eintrag wirklich gelöscht werden? Dieser Schritt kann nicht rückgängig gemacht werden!'
   isArchived: 'Archiviert'

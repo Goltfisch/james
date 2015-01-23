@@ -15,6 +15,7 @@ Meteor.methods
     throw new Meteor.Error(401, i18n 'notSignedIn') unless Meteor.user()
     throw new Meteor.Error(422, i18n 'nameIsBlank') unless workspace.name
     throw new Meteor.Error(422, i18n 'descriptionIsBlank') unless workspace.description
+    throw new Meteor.Error() unless workspace._id
 
     Workspaces.update
       _id: workspace._id
@@ -25,11 +26,13 @@ Meteor.methods
 
   deleteWorkspace: (workspace) ->
     throw new Meteor.Error(401, i18n 'notSignedIn') unless Meteor.user()
+    throw new Meteor.Error() unless workspace._id
 
     Workspaces.remove workspace._id
 
   addCollaborator: (collaborator) ->
     throw new Meteor.Error(401, i18n 'notSignedIn') unless Meteor.user()
+    throw new Meteor.Error() unless collaborator.workspaceId
 
     user = Meteor.users.findOne emails: $elemMatch: address: collaborator.email
 
@@ -45,6 +48,8 @@ Meteor.methods
   removeCollaborator: (collaborator) ->
     throw new Meteor.Error(401, i18n 'notSignedIn') unless Meteor.user()
     throw new Meteor.Error(422, i18n 'cannotRemoveYourself') if Meteor.userId() is collaborator._id
+    throw new Meteor.Error() unless collaborator.workspaceId
+    throw new Meteor.Error() unless collaborator._id
 
     Workspaces.update
       _id: collaborator.workspaceId
