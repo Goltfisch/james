@@ -2,7 +2,7 @@ template(name='collaborators')
   .row
     .twelve.columns
       form#add-collaborator-form
-        input#email.u-full-width(type='text' placeholder="{{i18n 'enterEmail'}}" autofocus='true')
+        input#email.u-full-width(type='email' placeholder="{{i18n 'enterEmail'}}" autofocus='true')
         input.button-primary.u-full-width.hidden-on-desktop(type='submit' value="{{i18n 'addCollaborator'}}")
   .row
     .twelve.columns
