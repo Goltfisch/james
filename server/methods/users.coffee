@@ -6,11 +6,7 @@ Meteor.methods
     throw new Meteor.Error(422, i18n 'passwordConfirmationIsBlank') unless user.passwordConfirmation
     throw new Meteor.Error(422, i18n 'passwordsDontMatch') if user.password isnt user.passwordConfirmation
 
-    newUserId = Accounts.createUser(
-      username: user.username.toLowerCase().trim()
-      email: user.email
-      password: user.password
-    )
+    newUserId = Accounts.createUser username: user.username.toLowerCase().trim(), email: user.email, password: user.password
 
     Meteor.defer ->
       Accounts.sendVerificationEmail(newUserId)
